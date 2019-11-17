@@ -5,11 +5,15 @@ import "./todo-list-item.css";
 // Компонент класс
 export default class TodoListItem extends Component{
 
-  constructor(params) {
-      super();
-      this.onLabelClick=()=>{
-        console.log(this.props.label)
-      }
+  // constructor(params) {
+  //     super();
+  //     this.onLabelClick=()=>{
+  //       console.log(this.props.label)
+  //     }
+  // }
+
+  onLabelClick=()=>{
+    console.log(this.props.label)
   }
 
   render(){
