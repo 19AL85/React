@@ -1,29 +1,61 @@
-import React from "react";
+import React, {Component} from "react";
 
 import "./todo-list-item.css";
 
-// Деструктуризайия - {props.label==={label}}
-const TodoListItem = ({ label, important = false }) => {
-  const style = {
-    color: important ? "steelblue" : "black",
-    fontWeight: important ? "bold" : "normal"
-  };
+// Компонент класс
+export default class TodoListItem extends Component{
 
-  return (
-    <span className="todo-list-item">
-      <span className="todo-list-item-label" style={style}>
-        {label}
+  render(){
+
+    const {label, important}=this.props;
+
+    const style = {
+      color: important ? "steelblue" : "black",
+      fontWeight: important ? "bold" : "normal"
+    };
+  
+    return (
+      <span className="todo-list-item">
+        <span className="todo-list-item-label" style={style}>
+          {label}
+        </span>
+  
+        <button type="button" className="btn btn-outline-success btn-sm float-right">
+          <i className="fa fa-exclamation" />
+        </button>
+  
+        <button type="button" className="btn btn-outline-danger btn-sm float-right">
+          <i className="fa fa-trash-o" />
+        </button>
       </span>
+    );
+  }
+}
 
-      <button type="button" className="btn btn-outline-success btn-sm float-right">
-        <i className="fa fa-exclamation" />
-      </button>
+// Функциональный компонент
 
-      <button type="button" className="btn btn-outline-danger btn-sm float-right">
-        <i className="fa fa-trash-o" />
-      </button>
-    </span>
-  );
-};
+// // Деструктуризайия - {props.label==={label}}
+// const TodoListItemFunc = ({ label, important = false }) => {
+//   const style = {
+//     color: important ? "steelblue" : "black",
+//     fontWeight: important ? "bold" : "normal"
+//   };
 
-export default TodoListItem;
+//   return (
+//     <span className="todo-list-item">
+//       <span className="todo-list-item-label" style={style}>
+//         {label}
+//       </span>
+
+//       <button type="button" className="btn btn-outline-success btn-sm float-right">
+//         <i className="fa fa-exclamation" />
+//       </button>
+
+//       <button type="button" className="btn btn-outline-danger btn-sm float-right">
+//         <i className="fa fa-trash-o" />
+//       </button>
+//     </span>
+//   );
+// };
+
+// export default TodoListItem;
