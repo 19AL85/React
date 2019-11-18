@@ -3,7 +3,7 @@ import React from "react";
 import TodoListItem from "../todo-list-item"; 
 import './todo-list.css';
 
-const TodoList = ({ todos, onDeleted }) => {
+const TodoList = ({ todos, onDeleted, onToggleImportant, onToggleDone }) => {
   const elements = todos.map(item => {
     //  в id деструктурируется item.id 
     //  а в ...itemProps все остальное.
@@ -13,7 +13,9 @@ const TodoList = ({ todos, onDeleted }) => {
         <li key={item.id} className="list-group-item">
             {/* using Spread operator */}
             <TodoListItem {...itemProps}
-            onDeleted={()=>onDeleted(id)}/> 
+            onDeleted={()=>onDeleted(id)}
+            onToggleImportant={()=>onToggleImportant(id)}
+            onToggleDone={()=>onToggleDone(id)}/> 
 
             {/* with out Spread operator */}
             {/* <TodoListItem 
