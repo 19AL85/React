@@ -30,7 +30,8 @@ export default class TodoListItem extends Component {
   };
 
   onMarkImportant = () => {
-    /* если state не зависит от текущего состояния
+    /*setState иногда! может работать асинхронно */
+    /* если новое состояние не зависит от текущего состояния
     this.setState({
       important: true
     })
